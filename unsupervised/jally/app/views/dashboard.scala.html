@@ -2,18 +2,18 @@
 
 @main(title = "Metrics dashboard") {
     
+   	@if(dashboard.dashboardType.equals(jobs.DashboardType.Master)) {
     <div class="row-fluid">
-	  	<div class="span6">
     @for( (report, i) <- dashboard.reports.zipWithIndex) {
         @if(0 != i && i % 2 == 0) {
-	  	</div>
-	  	<div class="span6">
-        }
-        @Html(report)
-    } 
-	  	</div>
 	</div>
-   	@if(dashboard.dashboardType.equals(jobs.DashboardType.Master)) {
+  	<div class="row-fluid">
+        }
+	  	<div class="span6">
+	        @Html(report)
+	  	</div>
+    } 
+	</div>
     <div class="row">
 	  	<div class="span6 offset2">
 	  		<p style="padding-top:20px;">
@@ -22,6 +22,10 @@
 	   		</p>
 	  	</div>
 	</div>
+   	} else {
+   		@for(report <- dashboard.reports) {
+	        @Html(report)
+   		}
    	}
     
 }

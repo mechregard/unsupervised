@@ -50,7 +50,7 @@ public class Dashboard {
 		if (DashboardType.Master.equals(dashboardType)) {
 			return generateMaster();
 		} else if (DashboardType.Scrum.equals(dashboardType)) {
-			return generateBurndowns();
+			return generateTeams();
 		}
 		return generateBurndowns();
 	}
@@ -78,4 +78,16 @@ public class Dashboard {
 		}
 		return burndowns;
 	}
+
+	private List<String> generateTeams() {
+		List<String> teams = Lists.newArrayList();
+		List<Iteration> iterations = Iteration.getTeamIterationsToday();
+		Logger.info("num reports:"+iterations.size());
+		for (Iteration iteration : iterations) {
+			Logger.info("generateTeams for "+iteration.team.name);
+			teams.add(new TeamReport(iteration).generate().htmlReport);
+		}
+		return teams;
+	}
+
 }

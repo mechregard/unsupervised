@@ -1,23 +1,50 @@
 # --- Sample dataset
 
 # --- !Ups
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 1,'2012-05-01', 16200, 16200, 800, 2000);
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 2,'2012-06-01', 37800, 0, 1600, 0);
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 3,'2012-07-01', 59400, 0, 2000, 0);
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 4,'2012-08-01', 81000, 0, 2000, 0);
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 5,'2012-09-01', 117000, 0, 4500, 0);
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 6,'2012-10-01', 153000, 0, 7000, 0);
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 7,'2012-11-01', 189000, 0, 12000, 0);
-insert into scale (id,month,portal_goal,portal_actual,han_goal,han_actual) values ( 8,'2012-12-01', 225000, 0, 17000, 0);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (104, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 14, 0, 8, 1000);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (103, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 15, 0, 15, 1000);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (102, '2012-06-04','2012-06-04', '2012-06-04', '2012-06-17', 0, 16, 0, 16, 1000);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (101, '2012-05-21','2012-05-21', '2012-05-21', '2012-06-03', 0, 20, 0, 20, 1000);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (100, '2012-05-07','2012-05-07', '2012-05-07', '2012-05-20', 0, 1, 0, 2, 1000);
 
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (204, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 8, 0, 8, 1001);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (203, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 4, 0, 11, 1001);
 
-insert into service (id,month,percent_complete,percent_goal,avg_throughput,throughput_goal) values ( 3,'2012-07-01', 14, 15, 110, 200);
-insert into service (id,month,percent_complete,percent_goal,avg_throughput,throughput_goal) values ( 4,'2012-08-01', 0, 25, 0, 200);
-insert into service (id,month,percent_complete,percent_goal,avg_throughput,throughput_goal) values ( 5,'2012-09-01', 0, 35, 0, 200);
-insert into service (id,month,percent_complete,percent_goal,avg_throughput,throughput_goal) values ( 6,'2012-10-01', 0, 42, 0, 200);
-insert into service (id,month,percent_complete,percent_goal,avg_throughput,throughput_goal) values ( 7,'2012-11-01', 0, 48, 0, 200);
-insert into service (id,month,percent_complete,percent_goal,avg_throughput,throughput_goal) values ( 8,'2012-12-01', 0, 50, 0, 200);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (304, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 34, 0, 26, 1002);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (303, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 39, 0, 38, 1002);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (302, '2012-06-04','2012-06-04', '2012-06-04', '2012-06-17', 0, 97, 0, 50, 1002);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (301, '2012-05-21','2012-05-21', '2012-05-21', '2012-06-03', 0, 56, 0, 56, 1002);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (300, '2012-05-07','2012-05-07', '2012-05-07', '2012-05-20', 0,10, 0, 7, 1002);
 
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (404, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 23, 0, 13, 1003);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (403, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 34, 0, 13, 1003);
+
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (504, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 26, 0, 15, 1004);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (503, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 15, 0, 7, 1004);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (502, '2012-06-04','2012-06-04', '2012-06-04', '2012-06-17', 0, 56, 0, 37, 1004);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (501, '2012-05-21','2012-05-21', '2012-05-21', '2012-06-03', 0, 8, 0, 8, 1004);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (500, '2012-05-07','2012-05-07', '2012-05-07', '2012-05-20', 0, 42, 0, 42, 1004);
+
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (604, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 3, 0, 1, 1005);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (603, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 12, 0, 12, 1005);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (602, '2012-06-04','2012-06-04', '2012-06-04', '2012-06-17', 0, 19, 0, 19, 1005);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (601, '2012-05-21','2012-05-21', '2012-05-21', '2012-06-03', 0, 6, 0, 6, 1005);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (600, '2012-05-07','2012-05-07', '2012-05-07', '2012-05-20', 0, 6, 0, 6, 1005);
+
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (704, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 13, 0, 9, 1006);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (703, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 28, 0, 25, 1006);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (702, '2012-06-04','2012-06-04', '2012-06-04', '2012-06-17', 0, 48, 0, 44, 1006);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (701, '2012-05-21','2012-05-21', '2012-05-21', '2012-06-03', 0, 23, 0, 20, 1006);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (700, '2012-05-07','2012-05-07', '2012-05-07', '2012-05-20', 0, 24, 0, 24, 1006);
+
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (804, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 2, 0, 2, 1008);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (803, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 8, 0, 8, 1008);
+
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (904, '2012-07-02','2012-07-02', '2012-07-02', '2012-07-15', 0, 30, 0, 16, 1009);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (903, '2012-06-18','2012-06-18', '2012-06-18', '2012-07-01', 0, 24, 0, 23, 1009);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (902, '2012-06-04','2012-06-04', '2012-06-04', '2012-06-17', 0, 25, 0, 25, 1009);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (901, '2012-05-21','2012-05-21', '2012-05-21', '2012-06-03', 0, 59, 0, 59, 1009);
+insert into iteration (id, name, obj_id, iteration_start, iteration_end, total_hours, total_points, completed_hours, completed_points, team_id) values (900, '2012-05-07','2012-05-07', '2012-05-07', '2012-05-20', 0, 25, 0, 20, 1009);
 
 # --- !Downs
 

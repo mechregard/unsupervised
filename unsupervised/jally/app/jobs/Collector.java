@@ -146,6 +146,7 @@ public class Collector {
 				iteration.totalHours += story.TaskEstimateTotal;
 				if (StringUtils.equalsIgnoreCase(story.ScheduleState, "Accepted")) {
 					burndown.points += story.PlanEstimate;
+					iteration.completedPoints += story.PlanEstimate;
 				}
 				burndown.hours += story.TaskRemainingTotal;
 			}
@@ -155,6 +156,7 @@ public class Collector {
 				iteration.totalHours += defect.TaskEstimateTotal;
 				if (StringUtils.equalsIgnoreCase(defect.ScheduleState, "Accepted")) {
 					burndown.points += defect.PlanEstimate;
+					iteration.completedPoints += defect.PlanEstimate;
 				}
 				burndown.hours += defect.TaskRemainingTotal;
 			}
@@ -248,7 +250,6 @@ public class Collector {
 		}
 		final Promise<Response> remoteCall = req.setAuth(getUser(), getPassword(), com.ning.http.client.Realm.AuthScheme.BASIC).get();
 		String res = remoteCall.get().getBody();
-//		Logger.info("response:"+res);
 		return res;
 	}
 	

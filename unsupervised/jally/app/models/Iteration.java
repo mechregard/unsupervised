@@ -137,15 +137,19 @@ public class Iteration extends Model {
     		addBurndown(srcToday);
     		Logger.info("Iteration:merge add burndown:"+srcToday);
     	} else if (null != srcToday) {
-    		// update existing
+    		// update existing hours, points
     		if (existing.hours != srcToday.hours || existing.points != srcToday.points) {
         		Logger.info("Iteration:merge update existing:"+existing+" src:"+srcToday);
         		existing.setHours(srcToday.getHours());
         		existing.setPoints(srcToday.getPoints());
     		}
     	}
+		// update existing points if different (less or more)
+		totalPoints = (totalPoints != src.totalPoints) ? src.totalPoints : totalPoints;
+		completedPoints = (completedPoints != src.completedPoints) ? src.completedPoints : completedPoints;
     }
 
+    
     
     /**
      * answer back the burndown matching given day
@@ -233,7 +237,12 @@ public class Iteration extends Model {
     	}
     	return iterations;
     }
- 
+
+    public static List<Iteration> getLastNTeamIterations(int n, Long teamId) {
+    	List<Iteration> iterations = find.where().eq("team_id", teamId).order("iterationStart").findList();
+    	return iterations;
+    }
+
     /**
      * Answer back iteration of given name
      * 

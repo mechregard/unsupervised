@@ -1,0 +1,112 @@
+@(report: reports.TeamReport)
+
+@rcontainer(title="Team") {
+    
+   	<div class="row">
+	  	<div class="span12">
+		    <div style="text-align: center; font-size: 16pt; padding: 20px;">@report.project</div>
+	  	</div>
+	</div>    
+
+   <div class="row">
+	  	<div class="span2">
+	  		<div class="well">
+	  			<p>Avg Velocity: @report.avgVelocity</p>
+	  			<p>Precision: @report.avgPrecision%</p>
+	  			<p>Avg Story pt: @report.avgStoryPts</p>
+	  		</div>
+	  	</div>
+	  	<div class="span4">
+
+   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawVisualization);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawVisualization() {
+    	  // Create and populate the data table.
+    	  var data = google.visualization.arrayToDataTable([
+    	    ['Sprint', 'Accepted', 'Planned'],
+
+    	    @for(row <- report.iterations) {
+    	    	[ '@row.name', @row.completedPoints, @row.totalPoints ],
+    	    } 
+
+    	  ]);
+
+    	  // Create and draw the visualization.
+    	  var ac = new google.visualization.ColumnChart(document.getElementById('chart_vel-@report.project'));
+    	  ac.draw(data, {
+    		  strictFirstColumnType: false,
+    		  legend: {position: 'top'},
+    	    title : 'velocity',
+    	    width: 300,
+    	    height: 300,
+    	    isStacked: "false"
+    	  });
+
+    	  
+    	}
+	</script>    
+
+    		<div id="chart_vel-@report.project"></div>
+	  	</div>
+	  	
+	  	<div class="span6">
+	  	
+   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawVisualization);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawVisualization() {
+    	  // Create and populate the data table.
+    	  var data = google.visualization.arrayToDataTable([
+    	    ['Day', 'Burndown', 'ideal', 'Accepted'],
+
+    	    @for(row <- report.burndown.data) {
+    	    	[ '@row.day', @row.hours, @row.ideal, @row.points ],
+    	    } 
+    	  ]);
+
+    	  // Create and draw the visualization.
+    	  var ac = new google.visualization.ComboChart(document.getElementById('chart_bd-@report.project'));
+    	  ac.draw(data, {
+    		strictFirstColumnType: false,
+    	    title : 'burndown',
+    	    width: 400,
+    	    height: 300,
+    	    hAxis: {title: "Day"},
+    	    seriesType: "bars",
+    	    vAxes: {
+    	      0: {title: "Hours"},
+    	      1: {title: "Points", maxValue:"@report.burndown.pointsMax"}
+    	    },
+    	    series: {
+    	      0: {targetAxisIndex: 0},
+    	      1: {type: "line",targetAxisIndex: 0},
+    	      2: {targetAxisIndex: 1},
+    	    }
+    	  });
+    	}
+	</script>    
+    <div id="chart_bd-@report.project"></div>
+    
+    </div>
+	</div>
+  
+}
