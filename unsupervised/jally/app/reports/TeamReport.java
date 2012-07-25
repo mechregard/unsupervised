@@ -38,7 +38,9 @@ public class TeamReport extends Report {
 		int totalVelocity = 0;
 		int totalPlanned = 0;
 		List<Iteration> iterations = Iteration.getLastNTeamIterations(n, teamId);
-		if (iterations.size() > 0) {
+		if (iterations.size() > 1) {
+			// pop off last one
+			iterations.remove(iterations.size()-1);
 			for (Iteration iteration : iterations) {
 				totalVelocity += iteration.completedPoints;
 				totalPlanned += iteration.totalPoints;
