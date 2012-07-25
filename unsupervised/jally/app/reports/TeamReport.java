@@ -38,15 +38,15 @@ public class TeamReport extends Report {
 		int totalVelocity = 0;
 		int totalPlanned = 0;
 		List<Iteration> iterations = Iteration.getLastNTeamIterations(n, teamId);
-		if (iterations.size() > 1) {
+		if (iterations.size() > 0) {
 			// pop off last one
 			iterations.remove(iterations.size()-1);
 			for (Iteration iteration : iterations) {
 				totalVelocity += iteration.completedPoints;
 				totalPlanned += iteration.totalPoints;
 			}
-			this.avgVelocity = (int) (totalVelocity / iterations.size());
-			this.avgPrecision = (int) ((totalVelocity * 100) / totalPlanned);
+			this.avgVelocity = (iterations.size() > 0)? (int) (totalVelocity / iterations.size()) : 0;
+			this.avgPrecision = (totalPlanned > 0)? (int) ((totalVelocity * 100) / totalPlanned) : 0;
 		}
 		return iterations;
 	}
