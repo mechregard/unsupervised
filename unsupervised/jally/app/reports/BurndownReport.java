@@ -2,6 +2,8 @@ package reports;
 
 import java.util.List;
 
+import play.Logger;
+
 import com.google.common.collect.Lists;
 
 import models.Burndown;
@@ -47,11 +49,12 @@ public class BurndownReport extends Report {
 			} 
 			filled.add(burndown);
 		}
+		Logger.info("BurndownReport.backfill size:"+filled.size());
 		// fill in ideal based on total hrs
-		int topline = iteration.totalHours;
-		int delta = topline / filled.size();
+		double topline = iteration.totalHours;
+		double delta = topline / (filled.size() - 1);
 		for (Burndown burndown : filled) {
-			burndown.ideal = (topline > 0)? topline : 0;
+			burndown.ideal = (topline > 0)? (int)topline : 0;
 			topline -= delta;
 		}
 		return filled;

@@ -147,6 +147,8 @@ public class Iteration extends Model {
 		// update existing points if different (less or more)
 		totalPoints = (totalPoints != src.totalPoints) ? src.totalPoints : totalPoints;
 		completedPoints = (completedPoints != src.completedPoints) ? src.completedPoints : completedPoints;
+		// update total hours (task estimate hours) may change
+		totalHours = (totalHours != src.totalHours) ? src.totalHours : totalHours;
     }
 
     
@@ -180,13 +182,17 @@ public class Iteration extends Model {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(iterationStart);
 
-        while (calendar.getTime().before(iterationEnd)) {
+        do {
 			if (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY && calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
 				String day = formatter.format(calendar.getTime());
 				dates.add(day);
 			}
             calendar.add(Calendar.DATE, 1);
-        }
+        } while (calendar.getTime().before(iterationEnd));
+		if (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY && calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+			String day = formatter.format(calendar.getTime());
+			dates.add(day);
+		}
         return dates;
     }
     /**
