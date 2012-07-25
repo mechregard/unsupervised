@@ -35,9 +35,13 @@
     	  var data = google.visualization.arrayToDataTable([
     	    ['Sprint', 'Accepted', 'Planned'],
 
-    	    @for(row <- report.iterations) {
-    	    	[ '@row.name', @row.completedPoints, @row.totalPoints ],
-    	    } 
+    	    @if(report.iterations.size() > 0) {
+        	    @for(row <- report.iterations) {
+        	    	[ '@row.name', @row.completedPoints, @row.totalPoints ],
+        	    } 
+        	} else {
+				    ['no data ', 0, 0],
+        	}
 
     	  ]);
 
