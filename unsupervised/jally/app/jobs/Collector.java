@@ -140,6 +140,8 @@ public class Collector {
 			Burndown burndown = new Burndown();
 			burndown.connect(iteration);
 			
+			// get total # stories
+			iteration.totalStories = results.QueryResult.Results.length;
 			// add story info
 			for (serialized.HierarchicalRequirement story : results.QueryResult.Results) {
 				iteration.totalPoints += story.PlanEstimate;

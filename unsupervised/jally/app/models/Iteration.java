@@ -38,6 +38,8 @@ public class Iteration extends Model {
     
     public int totalPoints;
     
+    public int totalStories;
+    
     public int totalHours;
     
     public int completedPoints;
@@ -55,6 +57,7 @@ public class Iteration extends Model {
     	this.objId= src.ObjectID;
     	this.totalHours = 0;
     	this.totalPoints = 0;
+    	this.totalStories = 0;
     	this.completedPoints = 0;
     	this.completedHours = 0;
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -149,6 +152,8 @@ public class Iteration extends Model {
 		completedPoints = (completedPoints != src.completedPoints) ? src.completedPoints : completedPoints;
 		// update total hours (task estimate hours) may change
 		totalHours = (totalHours != src.totalHours) ? src.totalHours : totalHours;
+		// may have changed stories
+		totalStories = (totalStories != src.totalStories) ? src.totalStories : totalStories;
     }
 
     
@@ -239,6 +244,7 @@ public class Iteration extends Model {
     	List<Iteration> iterations = find.where().lt("iterationStart", iterationDate).gt("iterationEnd", iterationDate).findList();
     	// eager load teams
     	for (Iteration iter : iterations) {
+    		// force team fetch if jpa
     		String name = iter.team.name;
     	}
     	return iterations;

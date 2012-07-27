@@ -9,6 +9,7 @@ object ApplicationBuild extends Build {
 
     val appDependencies = Seq(
        "postgresql" % "postgresql" % "9.1-901.jdbc4",
+       "org.apache.commons" % "commons-math" % "2.2",
        "com.typesafe" %% "play-plugins-mailer" % "2.0.1"
     )
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = JAVA).settings(
